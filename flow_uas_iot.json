@@ -1,0 +1,1022 @@
+[
+    {
+        "id": "1b65430d246bbab9",
+        "type": "tab",
+        "label": "UAS IoT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "badb27bb9bfa37d4",
+        "type": "mqtt in",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "topic": "UASkel1/DHT",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dd43a0c12e6a01a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 200,
+        "wires": [
+            [
+                "89ca4bedf5fbeceb",
+                "f7225dd0340f9b05"
+            ]
+        ]
+    },
+    {
+        "id": "0ff625d6a369389e",
+        "type": "mqtt in",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "topic": "UASkel1/PING",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dd43a0c12e6a01a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "fd382ed7ce6a463a"
+            ]
+        ]
+    },
+    {
+        "id": "b721c4a617f96c85",
+        "type": "mqtt in",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "topic": "UASkel1/LDR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dd43a0c12e6a01a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 450,
+        "y": 40,
+        "wires": [
+            [
+                "e2255723d79a8812"
+            ]
+        ]
+    },
+    {
+        "id": "02ef0e3139c020f0",
+        "type": "mqtt in",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "topic": "UASkel1/LDRdelayed",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "dd43a0c12e6a01a5",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "3277b9c644d22c25"
+            ]
+        ]
+    },
+    {
+        "id": "e2255723d79a8812",
+        "type": "ui_chart",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "d486369da4e9ed39",
+        "order": 3,
+        "width": 6,
+        "height": 5,
+        "label": "Chart LDR Real-Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 640,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3277b9c644d22c25",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "Sql LDR delayed",
+        "func": "msg.topic = \"INSERT INTO ldr (LDR) VALUES (\"+msg.payload+\")\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "be077996d15668af"
+            ]
+        ]
+    },
+    {
+        "id": "be077996d15668af",
+        "type": "mysql",
+        "z": "1b65430d246bbab9",
+        "mydb": "88eca564e0e739eb",
+        "name": "Insert DB UAS",
+        "x": 800,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "975aaf7f39b57eba",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "Sql sensor",
+        "func": "msg.topic = \"INSERT INTO sensor (dht,ping) VALUES (\"+msg.payload['DHT']+\",\"+msg.payload['PING']+\")\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "be077996d15668af"
+            ]
+        ]
+    },
+    {
+        "id": "0024df0b24e9c568",
+        "type": "join",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": true,
+        "accumulate": true,
+        "timeout": "2",
+        "count": "1",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 610,
+        "y": 240,
+        "wires": [
+            [
+                "975aaf7f39b57eba"
+            ]
+        ]
+    },
+    {
+        "id": "89ca4bedf5fbeceb",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 1",
+        "func": "msg.topic = \"DHT\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 200,
+        "wires": [
+            [
+                "0024df0b24e9c568"
+            ]
+        ]
+    },
+    {
+        "id": "fd382ed7ce6a463a",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 2",
+        "func": "msg.topic = \"PING\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "0024df0b24e9c568"
+            ]
+        ]
+    },
+    {
+        "id": "e0134a0eda7d8f90",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "8e0e46abf3b760c9",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Show DHT/PING",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#4CAF50",
+        "className": "btnShow",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "ccd5a5f048c134a5"
+            ]
+        ]
+    },
+    {
+        "id": "ccd5a5f048c134a5",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 15",
+        "func": "msg.topic = \"SELECT DATE_FORMAT(date, '%Y-%m-%d') AS date, dht, ping FROM sensor;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 460,
+        "wires": [
+            [
+                "06bd2d8f8cc66a7a"
+            ]
+        ]
+    },
+    {
+        "id": "06bd2d8f8cc66a7a",
+        "type": "mysql",
+        "z": "1b65430d246bbab9",
+        "mydb": "88eca564e0e739eb",
+        "name": "iot_uas",
+        "x": 620,
+        "y": 460,
+        "wires": [
+            [
+                "241db54b66a6aa45"
+            ]
+        ]
+    },
+    {
+        "id": "241db54b66a6aa45",
+        "type": "ui_table",
+        "z": "1b65430d246bbab9",
+        "group": "8e0e46abf3b760c9",
+        "name": "",
+        "order": 6,
+        "width": 6,
+        "height": 4,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 790,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "5d7493f2224d911a",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "8e0e46abf3b760c9",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Show LDR",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#4CAF50",
+        "className": "btnShow",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 580,
+        "wires": [
+            [
+                "28d25dcb6fcf2ace"
+            ]
+        ]
+    },
+    {
+        "id": "28d25dcb6fcf2ace",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 11",
+        "func": "msg.topic = \"SELECT DATE_FORMAT(date, '%Y-%m-%d') AS date, LDR FROM ldr;\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 580,
+        "wires": [
+            [
+                "6c3f70831ce0d4b0"
+            ]
+        ]
+    },
+    {
+        "id": "6c3f70831ce0d4b0",
+        "type": "mysql",
+        "z": "1b65430d246bbab9",
+        "mydb": "88eca564e0e739eb",
+        "name": "iot_uas",
+        "x": 620,
+        "y": 580,
+        "wires": [
+            [
+                "aeafdb5f4b9bec36"
+            ]
+        ]
+    },
+    {
+        "id": "aeafdb5f4b9bec36",
+        "type": "ui_table",
+        "z": "1b65430d246bbab9",
+        "group": "8e0e46abf3b760c9",
+        "name": "",
+        "order": 8,
+        "width": 6,
+        "height": 4,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 790,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "185667a8234b6cdd",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "8e0e46abf3b760c9",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Hide DHT/PING",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#FF5252",
+        "className": "btnClear",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 220,
+        "y": 500,
+        "wires": [
+            [
+                "96df2c5f076d56a5"
+            ]
+        ]
+    },
+    {
+        "id": "96df2c5f076d56a5",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 12",
+        "func": "msg.payload = []\nmsg.topic = \"\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 500,
+        "wires": [
+            [
+                "241db54b66a6aa45"
+            ]
+        ]
+    },
+    {
+        "id": "2a264415230f9148",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "8e0e46abf3b760c9",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Hide LDR",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#FF5252",
+        "className": "btnClear",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 180,
+        "y": 620,
+        "wires": [
+            [
+                "ad0f5dd9049078b5"
+            ]
+        ]
+    },
+    {
+        "id": "ad0f5dd9049078b5",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 13",
+        "func": "msg.payload = []\nmsg.topic = \"\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 620,
+        "wires": [
+            [
+                "aeafdb5f4b9bec36"
+            ]
+        ]
+    },
+    {
+        "id": "c720c7b50488f4f2",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "8e0e46abf3b760c9",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Pindah Halaman",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#333446",
+        "className": "btnNext",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 720,
+        "wires": [
+            [
+                "6bd7f30de926d56d"
+            ]
+        ]
+    },
+    {
+        "id": "6bd7f30de926d56d",
+        "type": "change",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"tab\":\"UAS_RealTime\"}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 720,
+        "wires": [
+            [
+                "73b43b751c12b501"
+            ]
+        ]
+    },
+    {
+        "id": "73b43b751c12b501",
+        "type": "ui_ui_control",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "events": "all",
+        "x": 600,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57fc334adee42649",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "d486369da4e9ed39",
+        "order": 12,
+        "width": 13,
+        "height": 1,
+        "passthru": false,
+        "label": "Pindah Halaman",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#333446",
+        "className": "btnNext",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 780,
+        "wires": [
+            [
+                "38127017cd27b33d"
+            ]
+        ]
+    },
+    {
+        "id": "38127017cd27b33d",
+        "type": "change",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"tab\":\"UAS_DataBase\"}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 780,
+        "wires": [
+            [
+                "90698c4a833eb2df"
+            ]
+        ]
+    },
+    {
+        "id": "90698c4a833eb2df",
+        "type": "ui_ui_control",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "events": "all",
+        "x": 600,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7225dd0340f9b05",
+        "type": "ui_gauge",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "d486369da4e9ed39",
+        "order": 1,
+        "width": 6,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Gauge DHT RealTime",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 540,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e4734f5241c9a690",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "d486369da4e9ed39",
+        "order": 8,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear DHT",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#FF5252",
+        "className": "btnClear",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "6a93de21afaa5428"
+            ]
+        ]
+    },
+    {
+        "id": "6a93de21afaa5428",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 3",
+        "func": "msg.payload = null;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "f7225dd0340f9b05"
+            ]
+        ]
+    },
+    {
+        "id": "45bca10d45dda6bf",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 4",
+        "func": "msg.payload = [];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 100,
+        "wires": [
+            [
+                "e2255723d79a8812"
+            ]
+        ]
+    },
+    {
+        "id": "e96f70906fcdc84b",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "d486369da4e9ed39",
+        "order": 10,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear LDR",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#FF5252",
+        "className": "btnClear",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "45bca10d45dda6bf"
+            ]
+        ]
+    },
+    {
+        "id": "9a3f9dfb56f6819b",
+        "type": "ui_template",
+        "z": "1b65430d246bbab9",
+        "group": "8e0e46abf3b760c9",
+        "name": "",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .nr-dashboard-button .md-button {\n        font-weight: bold;\n        border-radius: 8px;\n        transition: background-color 0.3s ease, transform 0.2s ease;\n    }\n\n    .nr-dashboard-button .md-button:hover {\n        transform: scale(1.05);\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n    }\n\n    .nr-dashboard-button .md-button:active {\n        transform: scale(0.95);\n        box-shadow: none;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1100,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "749f1521bd50a191",
+        "type": "ui_template",
+        "z": "1b65430d246bbab9",
+        "group": "d486369da4e9ed39",
+        "name": "",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .nr-dashboard-button .md-button {\n        font-weight: bold;\n        border-radius: 8px;\n        transition: background-color 0.3s ease, transform 0.2s ease;\n    }\n\n    .nr-dashboard-button .md-button:hover {\n        transform: scale(1.05);\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n    }\n\n    .nr-dashboard-button .md-button:active {\n        transform: scale(0.95);\n        box-shadow: none;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1100,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e4d25a4d42042d1",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "8e0e46abf3b760c9",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "37652b83acf5bf49",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "8e0e46abf3b760c9",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5c4059822072c1b9",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "8e0e46abf3b760c9",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1a5ae707d5e5e78e",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "8e0e46abf3b760c9",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0b049c892f361950",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "8e0e46abf3b760c9",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3f2762dfb56dc88b",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "8e0e46abf3b760c9",
+        "order": 12,
+        "width": 13,
+        "height": 1
+    },
+    {
+        "id": "de239d8fb69c8c28",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1f9f60244b74b117",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "bae885dcb84edb54",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0f79d28c4c5161f9",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "14aeda0ce86213ab",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "21e7d984481f3d8a",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "fa7c5ab2d849389c",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 11,
+        "width": 13,
+        "height": 1
+    },
+    {
+        "id": "dd43a0c12e6a01a5",
+        "type": "mqtt-broker",
+        "name": "emqx",
+        "broker": "broker.emqx.io",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "d486369da4e9ed39",
+        "type": "ui_group",
+        "name": "Dashboard RealTime",
+        "tab": "ee5a308263bf8b80",
+        "order": 1,
+        "disp": true,
+        "width": 13,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "88eca564e0e739eb",
+        "type": "MySQLdatabase",
+        "name": "iot_UAS",
+        "host": "localhost",
+        "port": "3306",
+        "db": "iot_uas",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "8e0e46abf3b760c9",
+        "type": "ui_group",
+        "name": "Dashboard DataBase",
+        "tab": "a573edbb55ce35e0",
+        "order": 1,
+        "disp": true,
+        "width": 13,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ee5a308263bf8b80",
+        "type": "ui_tab",
+        "name": "UAS_RealTime",
+        "icon": "dashboard",
+        "order": 6,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a573edbb55ce35e0",
+        "type": "ui_tab",
+        "name": "UAS_DataBase",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
