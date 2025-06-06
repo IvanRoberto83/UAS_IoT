@@ -46,7 +46,8 @@
         "y": 280,
         "wires": [
             [
-                "fd382ed7ce6a463a"
+                "fd382ed7ce6a463a",
+                "6cafa2ce98ae581d"
             ]
         ]
     },
@@ -84,8 +85,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 300,
-        "y": 360,
+        "x": 299.99999237060547,
+        "y": 397.00000953674316,
         "wires": [
             [
                 "3277b9c644d22c25"
@@ -98,7 +99,7 @@
         "z": "1b65430d246bbab9",
         "name": "",
         "group": "d486369da4e9ed39",
-        "order": 3,
+        "order": 5,
         "width": 6,
         "height": 5,
         "label": "Chart LDR Real-Time",
@@ -148,8 +149,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 360,
+        "x": 549.9999923706055,
+        "y": 397.00000953674316,
         "wires": [
             [
                 "be077996d15668af"
@@ -162,8 +163,8 @@
         "z": "1b65430d246bbab9",
         "mydb": "88eca564e0e739eb",
         "name": "Insert DB UAS",
-        "x": 800,
-        "y": 320,
+        "x": 799.9999923706055,
+        "y": 357.00000953674316,
         "wires": [
             []
         ]
@@ -277,8 +278,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 210,
-        "y": 460,
+        "x": 209.99999237060547,
+        "y": 497.00000953674316,
         "wires": [
             [
                 "ccd5a5f048c134a5"
@@ -297,8 +298,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 460,
+        "x": 429.99999237060547,
+        "y": 497.00000953674316,
         "wires": [
             [
                 "06bd2d8f8cc66a7a"
@@ -311,8 +312,8 @@
         "z": "1b65430d246bbab9",
         "mydb": "88eca564e0e739eb",
         "name": "iot_uas",
-        "x": 620,
-        "y": 460,
+        "x": 619.9999923706055,
+        "y": 497.00000953674316,
         "wires": [
             [
                 "241db54b66a6aa45"
@@ -331,8 +332,8 @@
         "columns": [],
         "outputs": 0,
         "cts": false,
-        "x": 790,
-        "y": 500,
+        "x": 789.9999923706055,
+        "y": 537.0000095367432,
         "wires": []
     },
     {
@@ -355,8 +356,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
-        "y": 580,
+        "x": 189.99999237060547,
+        "y": 617.0000095367432,
         "wires": [
             [
                 "28d25dcb6fcf2ace"
@@ -375,8 +376,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 580,
+        "x": 429.99999237060547,
+        "y": 617.0000095367432,
         "wires": [
             [
                 "6c3f70831ce0d4b0"
@@ -389,8 +390,8 @@
         "z": "1b65430d246bbab9",
         "mydb": "88eca564e0e739eb",
         "name": "iot_uas",
-        "x": 620,
-        "y": 580,
+        "x": 619.9999923706055,
+        "y": 617.0000095367432,
         "wires": [
             [
                 "aeafdb5f4b9bec36"
@@ -409,8 +410,8 @@
         "columns": [],
         "outputs": 0,
         "cts": false,
-        "x": 790,
-        "y": 620,
+        "x": 789.9999923706055,
+        "y": 657.0000095367432,
         "wires": []
     },
     {
@@ -433,8 +434,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 220,
-        "y": 500,
+        "x": 219.99999237060547,
+        "y": 537.0000095367432,
         "wires": [
             [
                 "96df2c5f076d56a5"
@@ -453,8 +454,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 500,
+        "x": 429.99999237060547,
+        "y": 537.0000095367432,
         "wires": [
             [
                 "241db54b66a6aa45"
@@ -481,8 +482,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 180,
-        "y": 620,
+        "x": 179.99999237060547,
+        "y": 657.0000095367432,
         "wires": [
             [
                 "ad0f5dd9049078b5"
@@ -501,8 +502,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 430,
-        "y": 620,
+        "x": 429.99999237060547,
+        "y": 657.0000095367432,
         "wires": [
             [
                 "aeafdb5f4b9bec36"
@@ -529,8 +530,8 @@
         "payloadType": "bool",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
-        "y": 720,
+        "x": 189.99999237060547,
+        "y": 757.0000095367432,
         "wires": [
             [
                 "6bd7f30de926d56d"
@@ -556,8 +557,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 720,
+        "x": 399.99999237060547,
+        "y": 757.0000095367432,
         "wires": [
             [
                 "73b43b751c12b501"
@@ -570,8 +571,8 @@
         "z": "1b65430d246bbab9",
         "name": "",
         "events": "all",
-        "x": 600,
-        "y": 720,
+        "x": 599.9999923706055,
+        "y": 757.0000095367432,
         "wires": [
             []
         ]
@@ -582,8 +583,8 @@
         "z": "1b65430d246bbab9",
         "name": "",
         "group": "d486369da4e9ed39",
-        "order": 12,
-        "width": 13,
+        "order": 20,
+        "width": 20,
         "height": 1,
         "passthru": false,
         "label": "Pindah Halaman",
@@ -596,8 +597,8 @@
         "payloadType": "bool",
         "topic": "topic",
         "topicType": "msg",
-        "x": 190,
-        "y": 780,
+        "x": 189.99999237060547,
+        "y": 817.0000095367432,
         "wires": [
             [
                 "38127017cd27b33d"
@@ -623,8 +624,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 400,
-        "y": 780,
+        "x": 399.99999237060547,
+        "y": 817.0000095367432,
         "wires": [
             [
                 "90698c4a833eb2df"
@@ -637,8 +638,8 @@
         "z": "1b65430d246bbab9",
         "name": "",
         "events": "all",
-        "x": 600,
-        "y": 780,
+        "x": 599.9999923706055,
+        "y": 817.0000095367432,
         "wires": [
             []
         ]
@@ -649,11 +650,11 @@
         "z": "1b65430d246bbab9",
         "name": "",
         "group": "d486369da4e9ed39",
-        "order": 1,
+        "order": 3,
         "width": 6,
         "height": 5,
         "gtype": "gage",
-        "title": "Gauge DHT RealTime",
+        "title": "Gauge DHT Real-Time",
         "label": "units",
         "format": "{{value}}",
         "min": 0,
@@ -677,7 +678,7 @@
         "z": "1b65430d246bbab9",
         "name": "",
         "group": "d486369da4e9ed39",
-        "order": 8,
+        "order": 16,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -745,7 +746,7 @@
         "z": "1b65430d246bbab9",
         "name": "",
         "group": "d486369da4e9ed39",
-        "order": 10,
+        "order": 18,
         "width": 6,
         "height": 1,
         "passthru": false,
@@ -776,7 +777,7 @@
         "order": 13,
         "width": 0,
         "height": 0,
-        "format": "<style>\n    .nr-dashboard-button .md-button {\n        font-weight: bold;\n        border-radius: 8px;\n        transition: background-color 0.3s ease, transform 0.2s ease;\n    }\n\n    .nr-dashboard-button .md-button:hover {\n        transform: scale(1.05);\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n    }\n\n    .nr-dashboard-button .md-button:active {\n        transform: scale(0.95);\n        box-shadow: none;\n    }\n</style>",
+        "format": "<style>\n    .nr-dashboard-button .md-button {\n        font-weight: bold;\n        border-radius: 8px;\n        transition: background-color 0.3s ease, transform 0.2s ease;\n    }\n\n    .nr-dashboard-button .md-button:hover {\n        transform: scale(1.05);\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n    }\n\n    .nr-dashboard-button .md-button:active {\n        transform: scale(0.95);\n        box-shadow: none;\n    }\n\n    md-card, .nr-dashboard-button .md-button {\n        animation: fadeIn 0.5s ease;\n    }\n    \n    @keyframes fadeIn {\n        from { opacity: 0; transform: translateY(10px); }\n        to { opacity: 1; transform: translateY(0); }\n    }\n</style>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -794,10 +795,10 @@
         "z": "1b65430d246bbab9",
         "group": "d486369da4e9ed39",
         "name": "",
-        "order": 13,
+        "order": 21,
         "width": 0,
         "height": 0,
-        "format": "<style>\n    .nr-dashboard-button .md-button {\n        font-weight: bold;\n        border-radius: 8px;\n        transition: background-color 0.3s ease, transform 0.2s ease;\n    }\n\n    .nr-dashboard-button .md-button:hover {\n        transform: scale(1.05);\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n    }\n\n    .nr-dashboard-button .md-button:active {\n        transform: scale(0.95);\n        box-shadow: none;\n    }\n</style>",
+        "format": "<style>\n    .nr-dashboard-button .md-button {\n        font-weight: bold;\n        border-radius: 8px;\n        transition: background-color 0.3s ease, transform 0.2s ease;\n    }\n\n    .nr-dashboard-button .md-button:hover {\n        transform: scale(1.05);\n        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n    }\n\n    .nr-dashboard-button .md-button:active {\n        transform: scale(0.95);\n        box-shadow: none;\n    }\n\n    md-card, .nr-dashboard-button .md-button {\n        animation: fadeIn 0.5s ease;\n    }\n    \n    @keyframes fadeIn {\n        from { opacity: 0; transform: translateY(10px); }\n        to { opacity: 1; transform: translateY(0); }\n    }\n</style>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -807,6 +808,98 @@
         "y": 160,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "6cafa2ce98ae581d",
+        "type": "ui_chart",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "d486369da4e9ed39",
+        "order": 1,
+        "width": 6,
+        "height": 5,
+        "label": "Chart PING Real-Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 480,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57ae568e29c482c8",
+        "type": "ui_button",
+        "z": "1b65430d246bbab9",
+        "name": "",
+        "group": "d486369da4e9ed39",
+        "order": 14,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear PING",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#FF5252",
+        "className": "btnClear",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "d3544d224c0f60fb"
+            ]
+        ]
+    },
+    {
+        "id": "d3544d224c0f60fb",
+        "type": "function",
+        "z": "1b65430d246bbab9",
+        "name": "function 5",
+        "func": "msg.payload = [];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "6cafa2ce98ae581d"
+            ]
         ]
     },
     {
@@ -870,7 +963,7 @@
         "height": 1
     },
     {
-        "id": "de239d8fb69c8c28",
+        "id": "043b2841738faf96",
         "type": "ui_spacer",
         "z": "1b65430d246bbab9",
         "name": "spacer",
@@ -880,7 +973,7 @@
         "height": 1
     },
     {
-        "id": "1f9f60244b74b117",
+        "id": "93e57a4f148166fa",
         "type": "ui_spacer",
         "z": "1b65430d246bbab9",
         "name": "spacer",
@@ -890,17 +983,7 @@
         "height": 1
     },
     {
-        "id": "bae885dcb84edb54",
-        "type": "ui_spacer",
-        "z": "1b65430d246bbab9",
-        "name": "spacer",
-        "group": "d486369da4e9ed39",
-        "order": 5,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "0f79d28c4c5161f9",
+        "id": "4343a150803bce8b",
         "type": "ui_spacer",
         "z": "1b65430d246bbab9",
         "name": "spacer",
@@ -910,7 +993,7 @@
         "height": 1
     },
     {
-        "id": "14aeda0ce86213ab",
+        "id": "c05fe752481c31d3",
         "type": "ui_spacer",
         "z": "1b65430d246bbab9",
         "name": "spacer",
@@ -920,7 +1003,17 @@
         "height": 1
     },
     {
-        "id": "21e7d984481f3d8a",
+        "id": "b5c97bbc4e31f411",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d7da43893b5a5b12",
         "type": "ui_spacer",
         "z": "1b65430d246bbab9",
         "name": "spacer",
@@ -930,13 +1023,73 @@
         "height": 1
     },
     {
-        "id": "fa7c5ab2d849389c",
+        "id": "1c8f5e0ca3d3e878",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "401b41e5c9a1aafc",
         "type": "ui_spacer",
         "z": "1b65430d246bbab9",
         "name": "spacer",
         "group": "d486369da4e9ed39",
         "order": 11,
-        "width": 13,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "330630da7c9fc48a",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8bd075000ba3b341",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 13,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "b02003d0547a0b62",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "abea574db3ea5a7b",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 17,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ebee9fc3296e287a",
+        "type": "ui_spacer",
+        "z": "1b65430d246bbab9",
+        "name": "spacer",
+        "group": "d486369da4e9ed39",
+        "order": 19,
+        "width": 20,
         "height": 1
     },
     {
@@ -977,7 +1130,7 @@
         "tab": "ee5a308263bf8b80",
         "order": 1,
         "disp": true,
-        "width": 13,
+        "width": 20,
         "collapse": false,
         "className": ""
     },
